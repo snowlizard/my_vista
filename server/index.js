@@ -1,0 +1,31 @@
+const express = require("express");
+const app = express();
+const pool = require("./db");
+require('dotenv').config();
+
+const PORT = process.env.HOST_PORT;
+
+app.use(express.json());
+
+
+// Auth user
+app.get("/user/:id/:pass", async(req, res) => {
+    try {
+        let username = req.params.id;
+        let pass = req.params.pass;
+        const userdata = await pool.query('SELECT * FROM "users" WHERE username = ($1) AND passwd = ($2)', [username, pass]);
+        if(userdata.rowCount == 1){
+            res.json(userdata.rows[0]);
+        }else{
+            res.json(false);
+        }
+    } catch (error){
+        console.log(error);
+    }
+});
+
+
+
+app.listen(PORT, () => {
+    console.log("server is listening on port: " + PORT);
+});
