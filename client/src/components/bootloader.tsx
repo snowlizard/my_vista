@@ -12,39 +12,46 @@ import chime from '../assets/boot/chime.mp3';
 // set bootState to true - booting is done -
 
 export const Bootloader = () => {
-    const [bootOrder, setBoot] = useState('pre');
-
-
+    const [scene, setScene] = useState(<></>);
     useEffect( () => {
+        setScene(<SceneOne />);
+
         const timeout = setTimeout( () => {
             new Audio(chime).play();
-            setBoot('boot2nd');
+            setScene(<SceneTwo />);
         }, 4000);
 
         const timeout2 = setTimeout( () => {
             clearTimeout(timeout);
-            setBoot('bootFinal');
+            setScene(<SceneThree />);
         }, 8000);
 
         return () => clearTimeout(timeout2);
     }, []);
 
+    const SceneOne = () => (
+        <img id="bootloader_pre" src={bootloader} />
+    );
+
+    const SceneTwo = () => (
+        <video id="bootloader_2nd" width={400} height={400} autoPlay muted>
+            <source src={bootAnimation} type="video/mp4"></source>
+        </video>
+    );
+
+    const SceneThree = () => (
+        <div id="bootloader_final">
+            <div className="bootWelcome">
+                <img id="loadingCircle" src={loading} />
+                <span id="boot_text" >Welcome</span>
+            </div>
+            <img id="bootlogo_bottom" src={vista_logon_logo}></img>
+        </div>
+    );
+
     return (
         <div className="bootloader_container">
-            {
-                bootOrder === 'pre' ? <img id="bootloader_pre" src={bootloader}></img>
-                : bootOrder === 'boot2nd' ? 
-                <video id="bootloader_2nd" width={400} height={400} autoPlay muted>
-                    <source src={bootAnimation} type="video/mp4"></source>
-                </video>
-                : <div id="bootloader_final">
-                    <div className="bootWelcome">
-                        <img id="loadingCircle" src={loading} />
-                        <span id="boot_text" >Welcome</span>
-                    </div>
-                    <img id="bootlogo_bottom" src={vista_logon_logo}></img>
-                  </div>
-            }
+            { scene }
         </div>
     );
 }
