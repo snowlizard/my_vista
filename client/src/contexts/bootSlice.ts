@@ -6,8 +6,8 @@ export const bootState = createSlice({
     initialState: false,
 
     reducers: {
-        setScene: (state, action: PayloadAction<boolean>) => {
+        bootComplete: (state, action: PayloadAction<boolean>) => {
             state = action.payload;
-        }
+        },
     }
 });

@@ -13,6 +13,7 @@ import chime from '../assets/boot/chime.mp3';
 
 export const Bootloader = () => {
     const [scene, setScene] = useState(<></>);
+    
     useEffect( () => {
         setScene(<SceneOne />);
 
