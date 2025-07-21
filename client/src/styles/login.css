@@ -1,0 +1,8 @@
+#login{
+    background-image: url('../assets/wallpaper/login_bg.png');
+    background-repeat: no-repeat;
+    background-attachment: stretch;
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+}
