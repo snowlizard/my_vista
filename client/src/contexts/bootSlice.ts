@@ -1,13 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { type PayloadAction} from "@reduxjs/toolkit";
 
-export const bootState = createSlice({
-    name: "boot_state",
-    initialState: false,
+const bootSlice = createSlice({
+    name: "bootState",
+    initialState: { value: false },
 
     reducers: {
-        bootComplete: (state, action: PayloadAction<boolean>) => {
-            state = action.payload;
+        setBoot: (state, action: PayloadAction<boolean>) => {
+            state.value = action.payload;
         },
     }
 });
+
+export const { setBoot } = bootSlice.actions;
+export default bootSlice.reducer;

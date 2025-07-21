@@ -1,4 +1,6 @@
+import { useDispatch } from "react-redux";
 import { useState, useEffect } from "react";
+import { setBoot } from "../contexts/bootSlice";
 import bootloader from '../assets/boot/bootloader.gif';
 import bootAnimation  from '../assets/boot/bootloader.mp4';
 import vista_logon_logo from '../assets/boot/vista_logon_logo.png';
@@ -13,7 +15,8 @@ import chime from '../assets/boot/chime.mp3';
 
 export const Bootloader = () => {
     const [scene, setScene] = useState(<></>);
-    
+    const dispatch = useDispatch();
+
     useEffect( () => {
         setScene(<SceneOne />);
 
@@ -43,7 +46,8 @@ export const Bootloader = () => {
     const SceneThree = () => (
         <div id="bootloader_final">
             <div className="bootWelcome">
-                <img id="loadingCircle" src={loading} />
+                <img id="loadingCircle" src={loading}
+                onAnimationEnd={ () => dispatch(setBoot(true)) }/>
                 <span id="boot_text" >Welcome</span>
             </div>
             <img id="bootlogo_bottom" src={vista_logon_logo}></img>

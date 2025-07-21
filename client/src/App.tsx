@@ -1,11 +1,15 @@
-import './App.css'
+import { useSelector } from "react-redux";
+import { Bootloader } from "./components/bootloader";
+import { Login } from "./components/login";
 
-function App() {
+export const App = () => {
+  const bootState = useSelector((state: any) => state);
 
   return (
-    <>
-    </>
-  )
+    <div>
+    {
+      bootState.value ? <Login /> : <Bootloader />
+    }
+    </div>
+  );
 }
-
-export default App
