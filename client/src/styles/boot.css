@@ -16,7 +16,7 @@
     align-self: center;
 }
 
-#bootloader_final{
+#login_bg{
     background-image: url('../assets/wallpaper/login_bg.png');
     background-repeat: no-repeat;
     background-attachment: stretch;

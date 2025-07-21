@@ -44,7 +44,7 @@ export const Bootloader = () => {
     );
 
     const SceneThree = () => (
-        <div id="bootloader_final">
+        <div id="login_bg">
             <div className="bootWelcome">
                 <img id="loadingCircle" src={loading}
                 onAnimationEnd={ () => dispatch(setBoot(true)) }/>
