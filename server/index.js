@@ -24,6 +24,22 @@ app.get("/user/:id/:pass", async(req, res) => {
     }
 });
 
+/**
+ * Return list of user objects
+ * {
+ *  username: "example",
+ *  photo: "example.png"
+ * }
+ */
+app.get("/users", async(req, res) => {
+    try {
+        const users = await pool.query('SELECT username, photo from "users"');
+        res.json(users.rows);
+    } catch (error) {
+        res.json(error);
+    }
+});
+
 
 
 app.listen(PORT, () => {
