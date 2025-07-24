@@ -1,4 +1,5 @@
 import { useSelector } from "react-redux";
+import { Taskbar } from "./taskbar";
 
 export const Desktop = () => {
     const wallpaper = useSelector((state: any) => state.theme.wallpaper);
@@ -6,7 +7,7 @@ export const Desktop = () => {
     return (
         <div id="desktop"
         style={{ backgroundImage: "url(" + wallpaper + ")" }}>
-            Hello world
+            <Taskbar />
         </div>
     );
 }
