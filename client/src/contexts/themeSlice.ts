@@ -4,11 +4,11 @@ import { type PayloadAction} from "@reduxjs/toolkit";
 const themeSlice = createSlice({
     name: "bootState",
     initialState: {
-        wallpaper: "/wallpapers/vista_aero.png"
+        wallpaper: "/images/wallpapers/vista_aero.png"
     },
 
     reducers: {
-        setWallpaper: (state, action: PayloadAction<string>) => {
+        setWallpaper: (state: any, action: PayloadAction<string>) => {
             state.wallpaper = action.payload;
         },
     }
