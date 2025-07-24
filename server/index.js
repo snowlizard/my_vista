@@ -9,7 +9,7 @@ app.use(express.json());
 
 
 // Auth user
-app.get("/user/:id/:pass", async(req, res) => {
+app.get("/userz/:id/:pass", async(req, res) => {
     try {
         let username = req.params.id;
         let pass = req.params.pass;

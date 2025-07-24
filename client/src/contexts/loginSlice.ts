@@ -7,8 +7,22 @@ export const getUsers = createAsyncThunk(
     async (temp, thunkAPI) => {
         try {
             const response = await fetch(address + "/users");
-            const data = await response.json();
+            const data =  response.json();
+            console.log(data);
             return data;
+        } catch (error) {
+            return thunkAPI.rejectWithValue(error);
+        }
+    }
+);
+
+export const validLogin = createAsyncThunk(
+    "users/login",
+    async (user: any, thunkAPI) => {
+        try {
+            const response = await fetch(address + "/user/" + user.username + "/" + user.passwd);
+            const valid = await response.json();
+            return valid;
         } catch (error) {
             return thunkAPI.rejectWithValue(error);
         }
@@ -20,6 +34,7 @@ export const loginSlice = createSlice({
     initialState: {
         users: [],
         user: {},
+        valid: false
     },
 
     reducers: {},
@@ -27,6 +42,13 @@ export const loginSlice = createSlice({
     extraReducers: (builder) => {
         builder.addCase(getUsers.fulfilled, (state, action) => {
             state.users = action.payload;
+        }),
+
+        builder.addCase(validLogin.fulfilled, (state, action) =>{
+            state.valid = action.payload;
         })
     }
-})
+});
+
+export const {} = loginSlice.actions;
+export default loginSlice.reducer;
