@@ -11,8 +11,12 @@ app.use(express.json());
 
 
 app.get("/desktop/apps", async(req, res) => {
-    const apps = await getDesktopApps();
-    res.json(apps);
+    try {
+        const apps = await getDesktopApps();
+        res.json(apps);
+    } catch (error) {
+        res.send(error);
+    }
 });
 
 // Auth user
