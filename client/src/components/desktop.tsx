@@ -1,6 +1,7 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { Taskbar } from "./taskbar";
+import { DesktopApp, type desktopApp } from "./desktopApp";
 import { getDesktopApps } from "../contexts/appSlice";
  
 export const Desktop = () => {
@@ -17,9 +18,9 @@ export const Desktop = () => {
         <div id="desktop"
         style={{ backgroundImage: "url(" + wallpaper + ")" }}>
             {
-                JSON.stringify(desktopApps)
+                desktopApps.map( (app: desktopApp) =>
+                <DesktopApp title={app.title} icon={app.icon} entry={app.entry}/> )
             }
-            
             <Taskbar />
         </div>
     );

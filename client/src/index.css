@@ -2,6 +2,7 @@
 @import './styles/boot.css';
 @import './styles/login.css';
 @import './styles/taskbar.css';
+@import './styles/app.css';
 
 #desktop{
     width: 100%;
