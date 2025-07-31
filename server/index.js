@@ -1,14 +1,16 @@
 const express = require("express");
 const app = express();
 const pool = require("./db");
+const cors = require("cors");
 require('dotenv').config();
 
 const { getDesktopApps } = require("./desktop");
 
 const PORT = process.env.HOST_PORT;
+const corsOptions = { origin: 'http://localhost:5173' };
 
 app.use(express.json());
-
+app.use(cors(corsOptions));
 
 app.get("/desktop/apps", async(req, res) => {
     try {

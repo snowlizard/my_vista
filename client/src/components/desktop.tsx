@@ -1,15 +1,25 @@
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { useEffect } from "react";
 import { Taskbar } from "./taskbar";
-import { Window } from "./Window";
-
+import { getDesktopApps } from "../contexts/appSlice";
  
 export const Desktop = () => {
     const wallpaper = useSelector((state: any) => state.theme.wallpaper);
+    const desktopApps = useSelector((state: any) => state.app.desktop);
+
+    const dispatch = useDispatch<any>();
+
+    useEffect(() => {
+        dispatch(getDesktopApps());
+    }, [dispatch]);
 
     return (
         <div id="desktop"
         style={{ backgroundImage: "url(" + wallpaper + ")" }}>
-            <Window title="Pokedex" path="/C:/Users/Snowlizard/Desktop/Pokedex/Pokedex.html" contextID="undadfh" />
+            {
+                JSON.stringify(desktopApps)
+            }
+            
             <Taskbar />
         </div>
     );
