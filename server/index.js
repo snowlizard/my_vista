@@ -3,10 +3,17 @@ const app = express();
 const pool = require("./db");
 require('dotenv').config();
 
+const { getDesktopApps } = require("./desktop");
+
 const PORT = process.env.HOST_PORT;
 
 app.use(express.json());
 
+
+app.get("/desktop/apps", async(req, res) => {
+    const apps = await getDesktopApps();
+    res.json(apps);
+});
 
 // Auth user
 app.get("/userz/:id/:pass", async(req, res) => {
