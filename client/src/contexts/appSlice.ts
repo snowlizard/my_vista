@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
-const address = "http://192.168.1.72:5000";
+const address = "http://localhost:5000";
 
 export const getDesktopApps = createAsyncThunk(
     "apps/desktop",
