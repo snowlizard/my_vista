@@ -1,0 +1,5 @@
+{
+    "title": "Pihole",
+    "icon" : "/C:/Program Files (x86)/pihole.ico",
+    "entry": "http://pi.hole"
+}
