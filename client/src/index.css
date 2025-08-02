@@ -10,3 +10,7 @@
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+.root {
+    --system-font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
