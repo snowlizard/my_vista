@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { type PayloadAction} from "@reduxjs/toolkit";
-import { type windowProps } from "../components/Window";
-import type { desktopApp } from "../components/desktopApp";
+import { type app, type appState } from "../types/app";
+
 
 const address = "http://localhost:5000";
 
@@ -14,11 +14,6 @@ export const getDesktopApps = createAsyncThunk(
     }
 );
 
-interface appState {
-    desktop: Array<desktopApp>,
-    running: Array<windowProps>
-}
-
 const initialState: appState = {
     desktop: [],
     running: []
@@ -29,9 +24,9 @@ export const appSlice = createSlice({
     initialState,
 
     reducers: {
-        runApp: (state, action : PayloadAction<windowProps>) => {
-            let exists = state.running.find( (app: windowProps) => 
-                app.contextID == action.payload.contextID);
+        runApp: (state, action : PayloadAction<app>) => {
+            let exists = state.running.find( (app: app) => 
+                app == action.payload);
 
             if(!exists){
                 state.running = [...state.running, action.payload];
@@ -39,7 +34,7 @@ export const appSlice = createSlice({
         },
 
         deactiveApp: (state, action: PayloadAction<string>) => {
-            state.running = state.running.filter((app) => app.contextID != action.payload);
+            state.running = state.running.filter((app) => app.entry != action.payload);
         }
     },
 

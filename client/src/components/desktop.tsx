@@ -1,10 +1,10 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { Taskbar } from "./taskbar";
-import { DesktopApp, type desktopApp } from "./desktopApp";
+import { DesktopApp } from "./desktopApp";
 import { getDesktopApps } from "../contexts/appSlice";
 import { Window } from "./Window";
-import type { windowProps } from "./Window";
+import { type app } from "../types/app";
  
 export const Desktop = () => {
     const wallpaper = useSelector((state: any) => state.theme.wallpaper);
@@ -21,13 +21,13 @@ export const Desktop = () => {
         <div id="desktop"
         style={{ backgroundImage: "url(" + wallpaper + ")" }}>
             {
-                desktopApps.map( (app: desktopApp) =>
-                <DesktopApp key={app.title} title={app.title} icon={app.icon} entry={app.entry}/> )
+                desktopApps.map( (app: app) =>
+                <DesktopApp key={app.title} {...app} /> )
             }
             {
                 activeApps == null ? "" :
-                activeApps.map( (app: windowProps) => 
-                <Window key={app.contextID} title={app.title} path={app.path} contextID={app.contextID} />)
+                activeApps.map( (app: app) => 
+                <Window key={app.entry} {...app} />)
             }
             <Taskbar />
         </div>

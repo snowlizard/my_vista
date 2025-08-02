@@ -1,23 +1,12 @@
 import { useDispatch } from "react-redux";
 import { runApp } from "../contexts/appSlice";
-import { type windowProps } from "./Window";
+import { type app } from "../types/app";
 
-export interface desktopApp {
-    title: string,
-    icon: string,
-    entry: string
-}
-
-export const DesktopApp = (props: desktopApp) => {
+export const DesktopApp = (props: app) => {
     const dispatch = useDispatch<any>();
 
     const launchApp = () => {
-        const app: windowProps = {
-            title: props.title,
-            path: props.entry,
-            contextID: "0"
-        }
-        dispatch(runApp(app));
+        dispatch(runApp(props));
     }
 
     return (
