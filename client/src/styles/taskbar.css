@@ -5,7 +5,7 @@
     bottom: -4px;
     left: 1em;
     width: 65px;
-    height: 40px;
+    height: 45px;
     background-image: url('/C:/Windows/images/ui/startorb.png');
     background-size: contain;
     background-repeat: no-repeat;
@@ -212,7 +212,7 @@
 
     display: flex;
     flex-flow: row;
-    justify-content: flex-end;
+    justify-content: flex-start;
     overflow: scroll;
 }
 
@@ -221,23 +221,37 @@
     overflow: scroll;
     display: flex;
     flex-flow: row;
+    justify-content: flex-start;
+    align-content: flex-start;
+    align-items: flex-start;
     padding: 2px;
+}
+
+.orbspacer {
+    z-index: -1;
+    width: 100px;
 }
 
 .appTile {
     width: 150px;
     background: rgba(0, 0, 0, 0);
-    border: 1px solid rgb(51, 51, 53);
+    border: 1.9px solid rgb(20, 20, 21);
     border-radius: 5px;
     color: #fff;
     display: flex;
     flex-flow: row;
     align-items: center;
     padding: 2px;
+    margin-left: 2px;
+}
+
+.appActive {
+    background: rgba(0, 0, 0, 0.25);
+    box-shadow: inset 0px 0px 1px 0.5px rgba(0, 0, 0, 0.5);
 }
 
 .appTile:hover {
-    background: rgba(14, 78, 128, 0.399)
+    box-shadow: inset 0 -0.5em 5px  rgba(18, 102, 166, 0.399);
 }
 
 .tileIcon {

@@ -11,6 +11,15 @@
     background-size: cover;
 }
 
+.desktopAppContainer{
+    height: 95%;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: flex-start;
+    align-content: flex-start;
+    overflow: hidden;
+}
+
 .root {
     --system-font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }

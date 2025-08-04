@@ -20,10 +20,12 @@ export const Desktop = () => {
     return (
         <div id="desktop"
         style={{ backgroundImage: "url(" + wallpaper + ")" }}>
+            <div className="desktopAppContainer">
             {
                 desktopApps.map( (app: app) =>
                 <DesktopApp key={app.title} {...app} /> )
             }
+            </div>
             {
                 activeApps == null ? "" :
                 activeApps.map( (app: app) => 

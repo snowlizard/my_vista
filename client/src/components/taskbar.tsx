@@ -17,6 +17,7 @@ export const Taskbar = () => {
         <>
             <div id="start_orb"></div>            
             <div id="taskbar">
+                <div className="orbspacer"></div>
                 <div className="tileContainer">
                     {
                         activeApps == null ? "" :

@@ -1,7 +1,14 @@
 .vista-window {
     position: absolute;
-    left: 25%;
+    left: 15%;
     top: 5%;
+    width: 75%;
+    height: 75%;
+}
+
+.window {
+    width: 100% !important;
+    height: 100% !important;
 }
 
 .desktopApp {
