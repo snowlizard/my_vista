@@ -221,6 +221,7 @@
     overflow: scroll;
     display: flex;
     flex-flow: row;
+    flex-grow: 1;
     justify-content: flex-start;
     align-content: flex-start;
     align-items: flex-start;
@@ -274,4 +275,5 @@
 .systemtray {
     width: 160px;
     height: 100%;
+    align-self: flex-end;
 }
