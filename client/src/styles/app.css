@@ -11,6 +11,10 @@
     height: 100% !important;
 }
 
+.hideClass {
+    display: none;
+}
+
 .desktopApp {
     width: 110px;
     height: 110px;

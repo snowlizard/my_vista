@@ -22,13 +22,13 @@ export const Desktop = () => {
             <div className="desktopAppContainer">
             {
                 desktopApps.map( (app: app) =>
-                <DesktopApp key={app.title} {...app} /> )
+                <DesktopApp key={app.index} {...app} /> )
             }
             </div>
             {
                 activeApps == null ? "" :
                 activeApps.map( (app: app) => 
-                <Window key={app.entry} {...app} />)
+                <Window key={app.index} {...app} />)
             }
         </div>
     );
