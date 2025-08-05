@@ -4,9 +4,18 @@
 @import './styles/taskbar.css';
 @import './styles/app.css';
 
+.os {
+    display: flex;
+    flex-flow: column;
+    width: 100vw;
+    height: 100vh;
+}
+
 #desktop{
     width: 100%;
-    height: 100vh;
+    height: 80%;
+    flex-grow: 1;
+    flex-shrink: 1;
     background-repeat: no-repeat;
     background-size: cover;
 }

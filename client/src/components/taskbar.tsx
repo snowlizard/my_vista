@@ -14,20 +14,18 @@ export const Taskbar = () => {
     );
 
     return (
-        <>
-            <div id="start_orb"></div>            
-            <div id="taskbar">
-                <div className="orbspacer"></div>
-                <div className="tileContainer">
-                    {
-                        activeApps == null ? "" :
-                        activeApps.map( (app: app) => <AppTile {...app} />)
-                    }
-                </div>
-                <div className="systemtray">
-
-                </div>
+        <div id="taskbar">
+            <div id="start_orb"></div>   
+            <div className="orbspacer"></div>
+            <div className="tileContainer">
+                {
+                    activeApps == null ? "" :
+                    activeApps.map( (app: app) => <AppTile {...app} />)
+                }
             </div>
-        </>
+            <div className="systemtray">
+
+            </div>
+        </div>
     );
 }

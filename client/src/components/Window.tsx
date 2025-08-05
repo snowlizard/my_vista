@@ -12,7 +12,7 @@ export const Window = (props: app) => {
 
     return (
         <div className="background vista-window">
-            <div className="window glass active" style={{width: "1000px", height: "600px"}}>
+            <div className="window glass active">
                 <div className="title-bar">
                     <div className="title-bar-text">{props.title}</div>
                     <div className="title-bar-controls">
@@ -23,7 +23,7 @@ export const Window = (props: app) => {
                 </div>
 
             <div className="window-body has-space" style={{height: "92%"}}>
-                    <iframe style={{width: "100%", height: "100%"}} src={props.entry} />
+                    <embed style={{width: "100%", height: "100%"}} src={props.entry} />
                 </div> 
             </div>
         </div>

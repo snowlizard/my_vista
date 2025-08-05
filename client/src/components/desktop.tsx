@@ -1,6 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
-import { Taskbar } from "./taskbar";
 import { DesktopApp } from "./desktopApp";
 import { getDesktopApps } from "../contexts/appSlice";
 import { Window } from "./Window";
@@ -31,7 +30,6 @@ export const Desktop = () => {
                 activeApps.map( (app: app) => 
                 <Window key={app.entry} {...app} />)
             }
-            <Taskbar />
         </div>
     );
 }
