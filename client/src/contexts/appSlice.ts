@@ -31,7 +31,7 @@ export const appSlice = createSlice({
             if(!exists){
                 let index = action.payload.title + state.running.length;
 
-                let newApp = {...action.payload, open: false, index: index};
+                let newApp = {...action.payload, open: false, index: index, maximized: false};
                 state.running = [...state.running, newApp];
             }
         },
@@ -43,7 +43,6 @@ export const appSlice = createSlice({
         hideApp: (state, action: PayloadAction<app>) => {
             let currentApp = action.payload;
             let element = document.getElementById(currentApp.index);
-            console.log(currentApp.open);
 
             if(!currentApp.open){
                 element?.classList.add("hideClass");
@@ -60,7 +59,30 @@ export const appSlice = createSlice({
             });
 
             state.running = updated;
-        }
+        },
+
+        resizeMax: (state, action: PayloadAction<app>) => {
+            let currentApp = action.payload;
+            let element = document.getElementById(currentApp.index);
+            let desktop = document.getElementById("desktop");
+
+            if(!currentApp.maximized){
+                let targetHeight = desktop?.offsetHeight! - 35;
+                element?.setAttribute("style", "top: 0; left: 0; width: 100%; height: " + targetHeight + "px");
+            } else {
+                element?.setAttribute("style", "top: 10%; left: 15%; width: 75%; height: 80%");
+            }
+
+            let updated : Array<app> = state.running.map( (app: app) => {
+                if(app.index == currentApp.index){
+                    return {...app, maximized: !currentApp.maximized}
+                } else {
+                    return currentApp;
+                }
+            });
+
+            state.running = updated
+        },
     },
 
     extraReducers: (builder) => {
@@ -70,5 +92,5 @@ export const appSlice = createSlice({
     }
 });
 
-export const { runApp, deactiveApp, hideApp } = appSlice.actions;
+export const { runApp, deactiveApp, hideApp, resizeMax } = appSlice.actions;
 export default appSlice.reducer;

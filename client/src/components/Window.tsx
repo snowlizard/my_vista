@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { deactiveApp, hideApp } from "../contexts/appSlice";
+import { deactiveApp, hideApp, resizeMax } from "../contexts/appSlice";
 import { type app } from "../types/app";
 
 export const Window = (props: app) => {
@@ -14,6 +14,10 @@ export const Window = (props: app) => {
         dispatch(hideApp(props));
     }
 
+    const maximize = () => {
+        dispatch(resizeMax(props));
+    }
+
     return (
         <div className="background vista-window" id={props.index}>
             <div className="window glass active">
@@ -21,7 +25,7 @@ export const Window = (props: app) => {
                     <div className="title-bar-text">{props.title}</div>
                     <div className="title-bar-controls">
                         <button onClick={minimize} aria-label="Minimize"></button>
-                        <button aria-label="Maximize" disabled></button>
+                        <button onClick={maximize} aria-label="Maximize"></button>
                         <button onClick={handleClose} aria-label="Close"></button>
                     </div>
                 </div>

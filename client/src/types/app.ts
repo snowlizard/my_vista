@@ -3,7 +3,8 @@ export interface app {
     icon: string,
     entry: string,
     open: boolean,
-    index: string
+    index: string,
+    maximized: boolean
 }
 
 export interface appState {
