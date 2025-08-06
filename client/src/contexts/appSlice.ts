@@ -40,7 +40,7 @@ export const appSlice = createSlice({
             state.running = state.running.filter((app) => app.entry != action.payload);
         },
 
-        hideApp: (state, action: PayloadAction<app>) => {
+        resizeMin: (state, action: PayloadAction<app>) => {
             let currentApp = action.payload;
             let element = document.getElementById(currentApp.index);
 
@@ -50,15 +50,8 @@ export const appSlice = createSlice({
                 element?.classList.remove("hideClass");
             }
 
-            let updated : Array<app> = state.running.map( (app: app) => {
-                if(app.index == currentApp.index){
-                    return {...app, open: !currentApp.open}
-                } else {
-                    return currentApp;
-                }
-            });
-
-            state.running = updated;
+            state.running = state.running.map( (app: app) => 
+            app.index == currentApp.index ? {...app, open: !currentApp.open} : app);
         },
 
         resizeMax: (state, action: PayloadAction<app>) => {
@@ -73,15 +66,8 @@ export const appSlice = createSlice({
                 element?.setAttribute("style", "top: 10%; left: 15%; width: 75%; height: 80%");
             }
 
-            let updated : Array<app> = state.running.map( (app: app) => {
-                if(app.index == currentApp.index){
-                    return {...app, maximized: !currentApp.maximized}
-                } else {
-                    return currentApp;
-                }
-            });
-
-            state.running = updated
+            state.running = state.running.map( (app: app) => 
+            app.index == currentApp.index ? {...app, maximized: !currentApp.maximized} : app);
         },
     },
 
@@ -92,5 +78,5 @@ export const appSlice = createSlice({
     }
 });
 
-export const { runApp, deactiveApp, hideApp, resizeMax } = appSlice.actions;
+export const { runApp, deactiveApp, resizeMin, resizeMax } = appSlice.actions;
 export default appSlice.reducer;

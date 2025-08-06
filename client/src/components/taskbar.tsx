@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
-import { hideApp } from "../contexts/appSlice";
+import { resizeMin } from "../contexts/appSlice";
 import { type app } from "../types/app";
 
 export const Taskbar = () => {
@@ -8,7 +8,7 @@ export const Taskbar = () => {
 
     const AppTile = (props: app) => {
         const minimize = () => {
-            dispatch(hideApp(props));
+            dispatch(resizeMin(props));
         }
 
         return (

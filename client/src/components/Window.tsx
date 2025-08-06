@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { deactiveApp, hideApp, resizeMax } from "../contexts/appSlice";
+import { deactiveApp, resizeMin, resizeMax } from "../contexts/appSlice";
 import { type app } from "../types/app";
 
 export const Window = (props: app) => {
@@ -11,7 +11,7 @@ export const Window = (props: app) => {
     }
 
     const minimize = () => {
-        dispatch(hideApp(props));
+        dispatch(resizeMin(props));
     }
 
     const maximize = () => {
