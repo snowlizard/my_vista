@@ -30,7 +30,7 @@ export const Window = (props: app) => {
                     </div>
                 </div>
 
-            <div className="window-body has-space" style={{height: "92%"}}>
+            <div className="window-body has-space" style={{height: "95%"}}>
                     <embed style={{width: "100%", height: "100%"}} src={props.entry} />
                 </div> 
             </div>
