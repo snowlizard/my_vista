@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { runApp } from "../contexts/appSlice";
+import { runApp, setCurrentApp } from "../contexts/appSlice";
 import { type app } from "../types/app";
 
 export const DesktopApp = (props: app) => {
@@ -7,6 +7,7 @@ export const DesktopApp = (props: app) => {
 
     const launchApp = () => {
         dispatch(runApp(props));
+        dispatch(setCurrentApp(props));
     }
 
     return (

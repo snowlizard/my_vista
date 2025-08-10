@@ -1,13 +1,15 @@
-export interface app {
+export type app = {
     title: string,
     icon: string,
     entry: string,
-    open: boolean,
+    hidden: boolean,
     index: string,
-    maximized: boolean
+    maximized: boolean,
+    zIndex: number,
 }
 
-export interface appState {
+export type appState = {
     desktop: Array<app>,
-    running: Array<app>
+    running: Array<app>,
+    currentApp: app | null
 }

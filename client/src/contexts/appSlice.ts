@@ -16,7 +16,8 @@ export const getDesktopApps = createAsyncThunk(
 
 const initialState: appState = {
     desktop: [],
-    running: []
+    running: [],
+    currentApp: null
 }
 
 export const appSlice = createSlice({
@@ -26,12 +27,13 @@ export const appSlice = createSlice({
     reducers: {
         runApp: (state, action : PayloadAction<app>) => {
             let exists = state.running.find( (app: app) => 
-                app == action.payload);
+                app.entry == action.payload.entry ? app : null);
 
             if(!exists){
                 let index = action.payload.title + state.running.length;
 
-                let newApp = {...action.payload, open: false, index: index, maximized: false};
+                let newApp = {...action.payload, hidden: false, index: index,
+                    maximized: false, zIndex: getHighestZIndex(state.running)};
                 state.running = [...state.running, newApp];
             }
         },
@@ -44,14 +46,14 @@ export const appSlice = createSlice({
             let currentApp = action.payload;
             let element = document.getElementById(currentApp.index);
 
-            if(!currentApp.open){
+            state.running = state.running.map( (app: app) => 
+            app.index == currentApp.index ? {...app, hidden: !currentApp.hidden} : app);
+
+            if(!currentApp.hidden){
                 element?.classList.add("hideClass");
             } else {
                 element?.classList.remove("hideClass");
             }
-
-            state.running = state.running.map( (app: app) => 
-            app.index == currentApp.index ? {...app, open: !currentApp.open} : app);
         },
 
         resizeMax: (state, action: PayloadAction<app>) => {
@@ -69,6 +71,14 @@ export const appSlice = createSlice({
             state.running = state.running.map( (app: app) => 
             app.index == currentApp.index ? {...app, maximized: !currentApp.maximized} : app);
         },
+
+        setCurrentApp: (state, action: PayloadAction<app>) => {
+            state.currentApp = {...action.payload, zIndex: getHighestZIndex(state.running)};
+
+            state.running = state.running.map((updatedApp) => 
+                updatedApp.index === state.currentApp?.index ?
+                updatedApp : {...updatedApp, zIndex: updatedApp.zIndex++});
+        },
     },
 
     extraReducers: (builder) => {
@@ -78,5 +88,10 @@ export const appSlice = createSlice({
     }
 });
 
-export const { runApp, deactiveApp, resizeMin, resizeMax } = appSlice.actions;
+
+const getHighestZIndex = (appList: Array<app>) => {
+    return appList.reduce((accumulator, appTwo) => Math.max(accumulator, appTwo.zIndex), 0) + 1;
+}
+
+export const { runApp, setCurrentApp, deactiveApp, resizeMin, resizeMax } = appSlice.actions;
 export default appSlice.reducer;

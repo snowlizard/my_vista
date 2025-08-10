@@ -7,12 +7,18 @@ export const Taskbar = () => {
     const dispatch = useDispatch<any>();
 
     const AppTile = (props: app) => {
-        const minimize = () => {
-            dispatch(resizeMin(props));
+
+        const highestZ = activeApps.reduce((accumulator: any, appTwo: app) => Math.max(accumulator, appTwo.zIndex), 0);
+        const appZ = activeApps.filter((targetApp: app) => targetApp.zIndex === highestZ);
+        
+        let tileClasses = "appTile";
+        if(appZ[0].index === props.index && !props.hidden){
+            tileClasses += " appActive"
         }
 
         return (
-            <div className="appTile" onClick={minimize}>
+            <div className={tileClasses} id={`appTile-${props.index}`}
+                onClick={() => dispatch(resizeMin(props))}>
                 <div className="tileIcon">
                     <img src={props.icon} />
                 </div>
@@ -28,7 +34,7 @@ export const Taskbar = () => {
             <div className="tileContainer">
                 {
                     activeApps == null ? "" :
-                    activeApps.map( (app: app) => <AppTile {...app} />)
+                    activeApps.map( (app: app) => <AppTile key={app.index} {...app} />)
                 }
             </div>
             <div className="systemtray">

@@ -3,7 +3,7 @@ import { type PayloadAction} from "@reduxjs/toolkit";
 
 const bootSlice = createSlice({
     name: "bootState",
-    initialState: { value: false },
+    initialState: { value: true },
 
     reducers: {
         setBoot: (state, action: PayloadAction<boolean>) => {
