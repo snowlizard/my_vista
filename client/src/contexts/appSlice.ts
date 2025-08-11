@@ -74,10 +74,8 @@ export const appSlice = createSlice({
 
         setCurrentApp: (state, action: PayloadAction<app>) => {
             state.currentApp = {...action.payload, zIndex: getHighestZIndex(state.running)};
-
-            state.running = state.running.map((updatedApp) => 
-                updatedApp.index === state.currentApp?.index ?
-                updatedApp : {...updatedApp, zIndex: updatedApp.zIndex++});
+            state.running = state.running.map((target: app) =>
+                target.index === state.currentApp?.index ? state.currentApp : {...target, zIndex: target.zIndex++});
         },
     },
 

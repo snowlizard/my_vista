@@ -12,6 +12,7 @@ export const Window = (props: app) => {
     return (
         <Draggable nodeRef={nodeRef}>
             <div className="background vista-window" id={props.index} ref={nodeRef}
+                style={{zIndex: props.zIndex}}
                 onClick={() => dispatch(setCurrentApp(props))} >
                 <div className="window glass active">
                     <div className="title-bar">

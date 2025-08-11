@@ -9,7 +9,7 @@
     background-image: url('/C:/Windows/images/ui/startorb.png');
     background-size: contain;
     background-repeat: no-repeat;
-    z-index: 2;
+    z-index: 9999998;
 }
 
 #start_orb:hover{
@@ -208,7 +208,7 @@
     background-image: url('/C:/Windows/images/ui/taskbar.png');
     background-size: contain;
     background-repeat: repeat-x;
-    z-index: 1;
+    z-index: 9999997;
 
     display: flex;
     flex-flow: row;
