@@ -43,5 +43,7 @@
 .desktopAppTitle {
     font-size: 12pt;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #fff;
+    text-shadow: 2px 1px 1px #000;
 }
 
