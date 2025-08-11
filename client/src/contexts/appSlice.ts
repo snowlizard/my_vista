@@ -61,15 +61,15 @@ export const appSlice = createSlice({
             let element = document.getElementById(currentApp.index);
             let desktop = document.getElementById("desktop");
 
+            state.running = state.running.map( (app: app) =>
+            app.index == currentApp.index ? {...currentApp, maximized: !app.maximized} : app);
+
             if(!currentApp.maximized){
                 let targetHeight = desktop?.offsetHeight! - 35;
                 element?.setAttribute("style", "top: 0; left: 0; width: 100%; height: " + targetHeight + "px");
             } else {
                 element?.setAttribute("style", "top: 10%; left: 15%; width: 75%; height: 80%");
             }
-
-            state.running = state.running.map( (app: app) => 
-            app.index == currentApp.index ? {...app, maximized: !currentApp.maximized} : app);
         },
 
         setCurrentApp: (state, action: PayloadAction<app>) => {
