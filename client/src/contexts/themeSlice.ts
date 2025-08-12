@@ -4,7 +4,7 @@ import { type PayloadAction} from "@reduxjs/toolkit";
 const themeSlice = createSlice({
     name: "bootState",
     initialState: {
-        wallpaper: "/C:/Windows/images/wallpapers/vista_aero.png"
+        wallpaper: "/C:/Windows/images/wallpapers/space.jpg"
     },
 
     reducers: {
