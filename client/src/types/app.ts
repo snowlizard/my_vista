@@ -6,6 +6,7 @@ export type app = {
     index: string,
     maximized: boolean,
     zIndex: number,
+    type: string,
 }
 
 export type appState = {

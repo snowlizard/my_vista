@@ -45,7 +45,7 @@ export const Window = (props: app) => {
                     </div>
 
                 <div className="window-body has-space" style={{height: "95%"}}>
-                        <embed style={{width: "100%", height: "100%"}} src={props.entry} />
+                        <embed style={{width: "100%", height: "100%"}} src={props.entry}/>
                     </div> 
                 </div>
             </div>

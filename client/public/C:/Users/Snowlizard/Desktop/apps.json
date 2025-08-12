@@ -1,52 +1,62 @@
 [
     {
-    "title": "Docmost",
-    "icon" : "/C:/Program Files (x86)/docmost.ico",
-    "entry": "http://docmost.sudo"
+        "title": "Docmost",
+        "icon" : "/C:/Program Files (x86)/docmost.ico",
+        "entry": "http://docmost.sudo",
+        "type" : "external"
     },
     {
         "title": "ecloud",
         "icon" : "/C:/Program Files (x86)/proxmox.ico",
-        "entry": "https://ecloud.snowlizard.app"
+        "entry": "https://ecloud.snowlizard.app",
+        "type" : "external"
     },
     {
         "title": "Firefly",
         "icon" : "/C:/Program Files (x86)/firefly.ico",
-        "entry": "http://mrkrabs.money"
+        "entry": "http://mrkrabs.money",
+        "type" : "external"
     },
     {
         "title": "Jellyfin",
         "icon" : "/C:/Program Files (x86)/jellyfin.ico",
-        "entry": "https://jellyfin.snowlizard.app"
+        "entry": "https://jellyfin.snowlizard.app",
+        "type" : "external"
     },
     {
         "title": "mini",
         "icon" : "/C:/Program Files (x86)/proxmox.ico",
-        "entry": "https://mini.snowlizard.app"
+        "entry": "https://mini.snowlizard.app",
+        "type" : "external"
     },
     {
         "title": "Nginx",
         "icon" : "/C:/Program Files (x86)/npm.ico",
-        "entry": "http://nginx.sudo"
+        "entry": "http://nginx.sudo",
+        "type" : "external"
     },
     {
         "title": "OMV",
         "icon" : "/C:/Program Files (x86)/omv.ico",
-        "entry": "http://omv.sudo"
+        "entry": "http://omv.sudo",
+        "type" : "external"
     },
     {
         "title": "Pihole",
         "icon" : "/C:/Program Files (x86)/pihole.ico",
-        "entry": "http://pi.hole"
+        "entry": "http://pi.hole",
+        "type" : "external"
     },
     {
         "title": "Pokedex",
         "icon" : "/C:/Program Files (x86)/Pokedex/pokedex.ico",
-        "entry": "/C:/Program Files (x86)/Pokedex/index.html"
+        "entry": "/C:/Program Files (x86)/Pokedex/index.html",
+        "type" : "internal"
     },
     {
         "title": "Vault",
         "icon" : "/C:/Program Files (x86)/warden.ico",
-        "entry": "https://vault.snowlizard.app"
+        "entry": "https://vault.snowlizard.app",
+        "type" : "external"
     }
 ]

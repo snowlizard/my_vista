@@ -26,6 +26,11 @@ export const appSlice = createSlice({
 
     reducers: {
         runApp: (state, action : PayloadAction<app>) => {
+            if(action.payload.type === "external") {
+                window.open(action.payload.entry, "_blank", "noopener")
+                return;
+            }
+
             let exists = state.running.find( (app: app) => 
                 app.entry == action.payload.entry ? app : null);
 
