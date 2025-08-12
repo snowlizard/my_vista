@@ -31,7 +31,7 @@ export const Window = (props: app) => {
     }
 
     return (
-        <Draggable nodeRef={nodeRef}>
+        <Draggable nodeRef={nodeRef} bounds="parent" handle='.title-bar'>
             <div className="background vista-window" id={props.index} ref={nodeRef}
                 style={{zIndex: props.zIndex}} onClick={updateCurrent}>
                 <div className="window glass active">
