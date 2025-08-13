@@ -1,5 +1,5 @@
 import { ClickAwayListener } from "@mui/material";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { menuState } from "../contexts/startmenuSlice";
 
 export const Startmenu = () => {
@@ -33,14 +33,15 @@ const LeftColumn = () => {
 
 
 const RightColumn = () => {
+    const userIcon = useSelector((state: any) => state.theme.userIcon);
     const folders = ["Documents", "Pictures", "Music", "Videos"];
     const systemApps = ["Control Panel", "Default Programs", "Help and Support"];
 
     return (
         <div id='right-column'>
             <div id='frame-container'>
-                <img className='userFrame' src="/C:/Windows/images/ui/userframe.ico"></img>
-                <img id='userPic' src="/C:/Windows/images/ui/pepe.jpg"></img>
+                <img className='userFrame' src="/assets/ui/userframe.ico"></img>
+                <img id='userPic' src={userIcon}></img>
             </div>
 
             <div className="startmenu-folders">

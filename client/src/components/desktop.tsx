@@ -2,6 +2,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { DesktopApp } from "./desktopApp";
 import { getDesktopApps } from "../contexts/appSlice";
+import { getTheme } from "../contexts/themeSlice";
 import { Window } from "./Window";
 import { type app } from "../types/app";
 import { Startmenu } from "./startmenu";
@@ -16,6 +17,7 @@ export const Desktop = () => {
 
     useEffect(() => {
         dispatch(getDesktopApps());
+        dispatch(getTheme());
     }, [dispatch]);
 
     return (

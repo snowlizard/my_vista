@@ -1,16 +1,33 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { type PayloadAction} from "@reduxjs/toolkit";
+
+export const getTheme = createAsyncThunk(
+    "os/theme",
+    async () => {
+        const response = await fetch("/theme.json");
+        const data =  response.json();
+        return data;
+    }
+);
 
 const themeSlice = createSlice({
     name: "bootState",
     initialState: {
-        wallpaper: "/C:/Windows/images/wallpapers/space.jpg"
+        wallpaper: "/C:/Windows/images/wallpapers/space.jpg",
+        userIcon: "",
     },
 
     reducers: {
         setWallpaper: (state: any, action: PayloadAction<string>) => {
             state.wallpaper = action.payload;
         },
+    },
+
+    extraReducers: (builder) => {
+        builder.addCase(getTheme.fulfilled, (state, action) => {
+            state.wallpaper = action.payload.wallpaper;
+            state.userIcon = action.payload.userIcon;
+        });
     }
 });
 

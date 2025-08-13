@@ -2,13 +2,10 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { type PayloadAction} from "@reduxjs/toolkit";
 import { type app, type appState } from "../types/app";
 
-
-const address = "http://localhost:5000";
-
 export const getDesktopApps = createAsyncThunk(
     "apps/desktop",
     async () => {
-        const response = await fetch(address + "/desktop/apps");
+        const response = await fetch("/apps.json");
         const data =  response.json();
         return data;
     }
