@@ -1,0 +1,121 @@
+#start_orb{
+    position: fixed;
+    bottom: -4px;
+    left: 1em;
+    width: 65px;
+    height: 45px;
+    background-image: url('/C:/Windows/images/ui/startorb.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 9999998;
+}
+
+#start_orb:hover{
+    filter: brightness(1.2);
+}
+
+.startMenu{
+    position: fixed;
+    bottom: 30px;
+    width: 400px;
+    height: 600px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-top: 0.5px solid rgb(165, 164, 164);
+    border-right: 0.5px solid rgb(165, 165, 165);
+    background: rgba(15, 15, 15, 0.836);
+    box-shadow: black 4px 5px 8px 0;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/** LEFT COLUMN **/
+.left-column{
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.left-wrapper{
+    margin-top: 10px;
+    width: 95%;
+    height: 91%;
+    border-radius: 3px;
+    border: 0.5px solid rgb(165, 165, 165);
+    box-shadow: black 4px 5px 8px 0;
+    background: #fff;
+    align-self: flex-start;
+}
+
+#startmenu-search{
+    position: absolute;
+    bottom: 10px;
+    width: 57%;
+}
+
+/** RIGHT COLUMN **/
+#right-column{
+    width: 38%;
+    height: 90%;
+    display: flex;
+    flex-flow: column;
+    align-content: center;
+    color: white;
+}
+
+#frame-container{
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.userFrame{
+    width: 80px;
+    height: 80px;
+    position: relative;
+    top: -25px;
+}
+
+#userPic{
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    z-index: -1;
+    top: -15px;
+}
+
+.startmenu-folders{
+    display: flex;
+    flex-flow: column;
+    padding: 5px;
+}
+
+.folder-container{
+    padding-left: 5px;
+    width: 100%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    text-shadow: 2px 1px 1px #000;
+}
+
+.folder-container:hover{
+    border-radius: 5px;
+    background: linear-gradient(180deg, #ADD8E6 5%, #708992 100%);
+    border-radius: 5px;
+
+}
+
+
+.divider{
+    width: 100%;
+    height: 3px;
+    border-radius: 20px;
+    background: linear-gradient(180deg, #161616 5%, #474747 100%);
+    margin: 2px;
+}

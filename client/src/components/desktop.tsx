@@ -4,6 +4,7 @@ import { DesktopApp } from "./desktopApp";
 import { getDesktopApps } from "../contexts/appSlice";
 import { Window } from "./Window";
 import { type app } from "../types/app";
+import { Startmenu } from "./startmenu";
  
 export const Desktop = () => {
     const wallpaper = useSelector((state: any) => state.theme.wallpaper);
@@ -30,6 +31,7 @@ export const Desktop = () => {
                 activeApps.map( (app: app) => 
                 <Window key={app.index} {...app} />)
             }
+            <Startmenu />
         </div>
     );
 }
