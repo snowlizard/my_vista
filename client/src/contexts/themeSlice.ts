@@ -14,6 +14,7 @@ const themeSlice = createSlice({
     name: "bootState",
     initialState: {
         wallpaper: "/C:/Windows/images/wallpapers/space.jpg",
+        username: "",
         userIcon: "",
     },
 
@@ -26,6 +27,7 @@ const themeSlice = createSlice({
     extraReducers: (builder) => {
         builder.addCase(getTheme.fulfilled, (state, action) => {
             state.wallpaper = action.payload.wallpaper;
+            state.username = action.payload.username;
             state.userIcon = action.payload.userIcon;
         });
     }

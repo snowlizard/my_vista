@@ -33,6 +33,7 @@ const LeftColumn = () => {
 
 
 const RightColumn = () => {
+    const username = useSelector((state: any) => state.theme.username);
     const userIcon = useSelector((state: any) => state.theme.userIcon);
     const folders = ["Documents", "Pictures", "Music", "Videos"];
     const systemApps = ["Control Panel", "Default Programs", "Help and Support"];
@@ -46,7 +47,7 @@ const RightColumn = () => {
 
             <div className="startmenu-folders">
                 <div className="folder-container">
-                    <span>Snowlizard</span>
+                    <span>{username}</span>
                 </div>
 
                 {
