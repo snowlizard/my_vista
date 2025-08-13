@@ -1,4 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
+import { menuState } from "../contexts/startmenuSlice";
 import { resizeMin } from "../contexts/appSlice";
 import { type app } from "../types/app";
 
@@ -29,7 +30,7 @@ export const Taskbar = () => {
 
     return (
         <div id="taskbar">
-            <div id="start_orb"></div>   
+            <div id="start_orb" onClick={() => dispatch(menuState())} ></div>   
             <div className="orbspacer"></div>
             <div className="tileContainer">
                 {

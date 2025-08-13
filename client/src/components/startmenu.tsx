@@ -1,10 +1,17 @@
+import { ClickAwayListener } from "@mui/material";
+import { useDispatch } from "react-redux";
+import { menuState } from "../contexts/startmenuSlice";
+
 export const Startmenu = () => {
+    const dispatch = useDispatch<any>();
 
     return (
-        <div className='startMenu' id='start_menu'>
-            <LeftColumn />
-            <RightColumn />
-        </div>
+        <ClickAwayListener onClickAway={() => dispatch(menuState())}>
+            <div className='startMenu' id='start_menu'>
+                <LeftColumn />
+                <RightColumn />
+            </div>
+        </ClickAwayListener>
     );
 }
 

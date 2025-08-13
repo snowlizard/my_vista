@@ -10,6 +10,7 @@ export const Desktop = () => {
     const wallpaper = useSelector((state: any) => state.theme.wallpaper);
     const desktopApps = useSelector((state: any) => state.app.desktop);
     const activeApps = useSelector((state: any) => state.app.running);
+    const startmenu = useSelector((state: any) => state.startmenu.value);
 
     const dispatch = useDispatch<any>();
 
@@ -31,7 +32,9 @@ export const Desktop = () => {
                 activeApps.map( (app: app) => 
                 <Window key={app.index} {...app} />)
             }
-            <Startmenu />
+            {
+                startmenu ? <Startmenu /> : ""
+            }
         </div>
     );
 }
