@@ -75,4 +75,9 @@
     width: 160px;
     height: 100%;
     align-self: flex-end;
+    color: #fff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
