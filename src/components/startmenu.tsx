@@ -1,6 +1,8 @@
 import { ClickAwayListener } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { menuState } from "../contexts/startmenuSlice";
+import { runApp, setCurrentApp } from "../contexts/appSlice";
+import type { app } from "../types/app";
 
 export const Startmenu = () => {
     const dispatch = useDispatch<any>();
@@ -16,17 +18,41 @@ export const Startmenu = () => {
 }
 
 const LeftColumn = () => {
+    const pinnedApps = useSelector((state: any) => state.app.pinned);
+
+
     return (
         <div className="left-column">
             <div className="left-wrapper">
                 <div className="programContainer">
                     <div className="pinnedApps">
-
+                        {
+                            pinnedApps === undefined ? "" :
+                            pinnedApps.map((pinnedApp: app) => <PinnedApp {...pinnedApp} />)
+                        }
                     </div>
                 </div>
 
                 <input id="startmenu-search" type="search" placeholder="Search" />
             </div>
+        </div>
+    );
+}
+
+const PinnedApp = (pinnedApp: app) => {
+    const dispatch = useDispatch<any>();
+
+    const launchApp = () => {
+        dispatch(runApp(pinnedApp));
+        dispatch(setCurrentApp(pinnedApp));
+    }
+
+    return (
+        <div className="pinnedApp" onClick={launchApp}>
+            <div className="pinnedAppIconWrapper">
+                <img src={pinnedApp.icon} className="pinnedAppIcon" />
+            </div>
+            <span className="pinnedAppTitle">{pinnedApp.title}</span>
         </div>
     );
 }

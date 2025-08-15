@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { type PayloadAction} from "@reduxjs/toolkit";
 import { type app, type appState } from "../types/app";
 
-export const getDesktopApps = createAsyncThunk(
+export const getApps = createAsyncThunk(
     "apps/desktop",
     async () => {
         const response = await fetch("/apps.json");
@@ -14,7 +14,9 @@ export const getDesktopApps = createAsyncThunk(
 const initialState: appState = {
     desktop: [],
     running: [],
-    currentApp: null
+    currentApp: null,
+    all: [],
+    pinned: []
 }
 
 export const appSlice = createSlice({
@@ -82,8 +84,10 @@ export const appSlice = createSlice({
     },
 
     extraReducers: (builder) => {
-        builder.addCase(getDesktopApps.fulfilled, (state, action) => {
-            state.desktop = action.payload;
+        builder.addCase(getApps.fulfilled, (state, action) => {
+            state.desktop = action.payload.filter((dapp: any) => dapp.location.desktop === true);
+            state.pinned = action.payload.filter((dapp: any) => dapp.location.pinned === true);
+            state.all = action.payload;
         })
     }
 });

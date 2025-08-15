@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { DesktopApp } from "./desktopApp";
-import { getDesktopApps } from "../contexts/appSlice";
+import { getApps } from "../contexts/appSlice";
 import { getTheme } from "../contexts/themeSlice";
 import { Window } from "./Window";
 import { type app } from "../types/app";
@@ -16,7 +16,7 @@ export const Desktop = () => {
     const dispatch = useDispatch<any>();
 
     useEffect(() => {
-        dispatch(getDesktopApps());
+        dispatch(getApps());
         dispatch(getTheme());
     }, [dispatch]);
 

@@ -3,60 +3,132 @@
         "title": "Docmost",
         "icon" : "/assets/apps/docmost.ico",
         "entry": "http://docmost.sudo",
-        "type" : "external"
+        "type" : "external",
+        "location": {
+            "desktop": true,
+            "pinned": false,
+            "folder": ""
+        }
     },
     {
         "title": "ecloud",
         "icon" : "/assets/apps/proxmox.ico",
         "entry": "https://ecloud.snowlizard.app",
-        "type" : "external"
+        "type" : "external",
+        "location": {
+            "desktop": true,
+            "pinned": false,
+            "folder": ""
+        }
     },
     {
         "title": "Firefly",
         "icon" : "/assets/apps/firefly.ico",
         "entry": "http://mrkrabs.money",
-        "type" : "external"
+        "type" : "external",
+        "location": {
+            "desktop": true,
+            "pinned": true,
+            "folder": ""
+        }
     },
     {
         "title": "Jellyfin",
         "icon" : "/assets/apps/jellyfin.ico",
         "entry": "https://jellyfin.snowlizard.app",
-        "type" : "external"
+        "type" : "external",
+        "location": {
+            "desktop": true,
+            "pinned": false,
+            "folder": ""
+        }
     },
     {
         "title": "mini",
         "icon" : "/assets/apps/proxmox.ico",
         "entry": "https://mini.snowlizard.app",
-        "type" : "external"
+        "type" : "external",
+        "location": {
+            "desktop": true,
+            "pinned": false,
+            "folder": ""
+        }
     },
     {
         "title": "Nginx",
         "icon" : "/assets/apps/npm.ico",
         "entry": "http://nginx.sudo",
-        "type" : "external"
+        "type" : "external",
+        "location": {
+            "desktop": true,
+            "pinned": false,
+            "folder": ""
+        }
     },
     {
         "title": "OMV",
         "icon" : "/assets/apps/omv.ico",
         "entry": "http://omv.sudo",
-        "type" : "external"
+        "type" : "external",
+        "location": {
+            "desktop": true,
+            "pinned": false,
+            "folder": ""
+        }
     },
     {
         "title": "Pihole",
         "icon" : "/assets/apps/pihole.ico",
         "entry": "http://pi.hole",
-        "type" : "external"
+        "type" : "external",
+        "location": {
+            "desktop": true,
+            "pinned": false,
+            "folder": ""
+        }
     },
     {
         "title": "Pokedex",
         "icon" : "/assets/apps/Pokedex/pokedex.ico",
         "entry": "/assets/apps/Pokedex/index.html",
-        "type" : "internal"
+        "type" : "internal",
+        "location": {
+            "desktop": true,
+            "pinned": false,
+            "folder": ""
+        }
     },
     {
         "title": "Vault",
         "icon" : "/assets/apps/warden.ico",
         "entry": "https://vault.snowlizard.app",
-        "type" : "external"
+        "type" : "external",
+        "location": {
+            "desktop": true,
+            "pinned": false,
+            "folder": ""
+        }
+    },
+    {
+        "title": "Outlook",
+        "icon" : "/assets/apps/outlook.png",
+        "entry": "https://login.microsoftonline.com/",
+        "type" : "external",
+        "location": {
+            "desktop": false,
+            "pinned": true,
+            "folder": ""
+        }
+    },
+    {
+        "title": "Archidekt",
+        "icon" : "/assets/apps/archidekt.png",
+        "entry": "https://archidekt.com/",
+        "type" : "external",
+        "location": {
+            "desktop": false,
+            "pinned": true,
+            "folder": ""
+        }
     }
 ]

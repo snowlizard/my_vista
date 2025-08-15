@@ -120,3 +120,28 @@
     background: linear-gradient(180deg, #161616 5%, #474747 100%);
     margin: 2px;
 }
+
+.pinnedApp{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 3px;
+}
+
+.pinnedApp:hover{
+    border-radius: 5px;
+    background: linear-gradient(180deg, #ebf4f7 5%, #c3d8e0 100%);
+    border-radius: 5px;
+}
+
+.pinnedAppIconWrapper{
+    width: 35px;
+    height: 40px;
+    margin-right: 5px;
+}
+
+.pinnedAppIcon{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
