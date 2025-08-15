@@ -94,6 +94,10 @@
     overflow: scroll;
 }
 
+.listWrapper::-webkit-scrollbar{
+    display: none;
+}
+
 .listToggleContainer{
     display: flex;
     flex-flow: column;
