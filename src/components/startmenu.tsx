@@ -1,4 +1,5 @@
 import { ClickAwayListener } from "@mui/material";
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { menuState } from "../contexts/startmenuSlice";
 import { runApp, setCurrentApp } from "../contexts/appSlice";
@@ -18,41 +19,67 @@ export const Startmenu = () => {
 }
 
 const LeftColumn = () => {
+    const [toggleText, setToggleText] = useState("All Programs");
     const pinnedApps = useSelector((state: any) => state.app.pinned);
+    const allApps = useSelector((state: any) => state.app.all);
+
+    const [currentList, setCurrentList] = useState(pinnedApps);
+
+    const updateList = () => {
+        if(toggleText === "All Programs"){
+            setToggleText("Back");
+            setCurrentList(allApps);
+        } else {
+            setToggleText("All Programs");
+            setCurrentList(pinnedApps);
+        }
+    }
 
 
     return (
         <div className="left-column">
             <div className="left-wrapper">
                 <div className="programContainer">
-                    <div className="pinnedApps">
-                        {
-                            pinnedApps === undefined ? "" :
-                            pinnedApps.map((pinnedApp: app) => <PinnedApp {...pinnedApp} />)
-                        }
+                    <div className="listWrapper">
+                        <Applist applist={currentList} />
+                    </div>
+
+                    <div className="listToggleContainer">
+                        <span className="toggleDivider"></span>
+                        <div className="toggleBtn" onClick={updateList}>
+                            <span className="toggleText">
+                                <svg id="toggleArrow" xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24"><path d="M24 22h-24l12-20z"/></svg>
+                                {toggleText}
+                            </span>
+                        </div>
                     </div>
                 </div>
-
                 <input id="startmenu-search" type="search" placeholder="Search" />
             </div>
         </div>
     );
 }
 
-const PinnedApp = (pinnedApp: app) => {
+const Applist = (props: any) => {
     const dispatch = useDispatch<any>();
 
-    const launchApp = () => {
-        dispatch(runApp(pinnedApp));
-        dispatch(setCurrentApp(pinnedApp));
+    const launchApp = (targetApp: app) => {
+        dispatch(runApp(targetApp));
+        dispatch(setCurrentApp(targetApp));
     }
 
     return (
-        <div className="pinnedApp" onClick={launchApp}>
-            <div className="pinnedAppIconWrapper">
-                <img src={pinnedApp.icon} className="pinnedAppIcon" />
-            </div>
-            <span className="pinnedAppTitle">{pinnedApp.title}</span>
+        <div className="applistContainer">
+            {
+                props.applist.map((targetApp: app) =>
+                    <div className="pinnedApp" onClick={() => launchApp(targetApp)} key={targetApp.index}>
+                        <div className="pinnedAppIconWrapper">
+                            <img src={targetApp.icon} className="pinnedAppIcon" />
+                        </div>
+                        <span className="pinnedAppTitle">{targetApp.title}</span>
+                    </div>          
+                )
+            }
         </div>
     );
 }
@@ -78,7 +105,7 @@ const RightColumn = () => {
 
                 {
                     folders.map((folder) => (
-                        <div className="folder-container">
+                        <div className="folder-container" key={folder}>
                             <span>{folder}</span>
                         </div>
                     ))
@@ -86,7 +113,7 @@ const RightColumn = () => {
                 <div className="divider"></div>
                 {
                     systemApps.map((sysApp) => (
-                        <div className="folder-container">
+                        <div className="folder-container" key={sysApp}>
                             <span>{sysApp}</span>
                         </div>
                     ))

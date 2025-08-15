@@ -57,6 +57,85 @@
     width: 57%;
 }
 
+.programContainer{
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.pinnedApp{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 3px;
+}
+
+.pinnedApp:hover{
+    border-radius: 5px;
+    background: linear-gradient(180deg, #ebf4f7 5%, #c3d8e0 100%);
+    border-radius: 5px;
+}
+
+.pinnedAppIconWrapper{
+    width: 35px;
+    height: 40px;
+    margin-right: 5px;
+}
+
+.pinnedAppIcon{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.listWrapper{
+    max-height: 95%;
+    overflow: scroll;
+}
+
+.listToggleContainer{
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 3px;
+    align-self: flex-end;
+    width: 98%;
+}
+
+.toggleDivider{
+    width: 90%;
+    height: 1px;
+    border-radius: 20px;
+    background: linear-gradient(180deg, #dfdfdf 5%, #474747 100%);
+    margin: 2px;
+}
+
+.toggleBtn{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 3px;
+    width: 100%;
+    margin: 4px;
+}
+
+.toggleBtn:hover{
+    border-radius: 5px;
+    background: linear-gradient(180deg, #ebf4f7 5%, #c3d8e0 100%);
+    border-radius: 5px;
+}
+
+#toggleArrow{
+    transform: rotate(90deg);
+    margin-right: 20px;
+}
+
+.toggleText{
+    font-weight: bold;
+}
+
 /** RIGHT COLUMN **/
 #right-column{
     width: 38%;
@@ -119,29 +198,4 @@
     border-radius: 20px;
     background: linear-gradient(180deg, #161616 5%, #474747 100%);
     margin: 2px;
-}
-
-.pinnedApp{
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    padding: 3px;
-}
-
-.pinnedApp:hover{
-    border-radius: 5px;
-    background: linear-gradient(180deg, #ebf4f7 5%, #c3d8e0 100%);
-    border-radius: 5px;
-}
-
-.pinnedAppIconWrapper{
-    width: 35px;
-    height: 40px;
-    margin-right: 5px;
-}
-
-.pinnedAppIcon{
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
 }
