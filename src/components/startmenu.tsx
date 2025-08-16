@@ -53,6 +53,15 @@ const LeftColumn = () => {
         setCurrentList(allApps.filter((targetApp: app) => targetApp.location.folder === folder));
     }
 
+    const onSearch = (input: React.KeyboardEvent<HTMLInputElement>) => {
+        let search = "https://duckduckgo.com/?q=";
+
+        if(input.key.toLocaleLowerCase() === "enter"){
+            let query = document.getElementById("startmenu-search") as HTMLInputElement;
+            window.open(search + query.value, "_blank", "noopener")
+        }
+    }
+
 
     return (
         <div className="left-column">
@@ -83,7 +92,7 @@ const LeftColumn = () => {
                         </div>
                     </div>
                 </div>
-                <input id="startmenu-search" type="search" placeholder="Search" />
+                <input onKeyDown={onSearch} id="startmenu-search" type="search" placeholder="Search" />
             </div>
         </div>
     );
