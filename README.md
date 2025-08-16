@@ -1,69 +1,37 @@
-# React + TypeScript + Vite
+# My Vista
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This website is inspired by the Windows Vista user interface, a design that, despite initial performance and compatibility challenges, exhibited a distinctive aesthetic amongst its subsequent Windows iterations. This project is independently developed and holds no affiliation with Microsoft. My vista was designed to be used a both a portfolio website and a browser homepage.
 
-Currently, two official plugins are available:
+## Theme
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```json
+{
+    "username": "Your user name",
+    "userIcon": "/assets/ui/pepe.jpg",
+    "wallpaper": "/assets/ui/space.jpg"
+}
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+The theme can be updated by changing the theme.json file in the public folder.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Apps
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
+```json
+    {
+        "title": "Reddit",
+        "icon": "https://redditinc.com/hs-fs/hubfs/Reddit%20Inc/Content/Brand%20Page/Reddit_Logo.png",
+        "entry": "https://www.reddit.com",
+        "type": "external",
+        "location": {
+            "desktop":false,
+            "pinned":false,
+            "folder":"Media"
+        }
     },
-  },
-])
 ```
+
+You can add apps through the apps.json file located in the public directory. Apps can have two different types “external” or “internal”. External apps will redirect to an external website i.e Reddit. Internal type apps should link to an html file or other static file. Opening internal type apps will open a window within the my vista desktop.
+
+You can add apps to the desktop by setting desktop to true under location. Pinned apps are the first apps shown when opening the start menu. Any app with a folder set to anything other than an empty string will appear inside a folder when opening “All programs” within the start menu.
+
+![](/api/files/0198b0ef-868b-740f-b6f3-f26b2031f526/Screenshot_From_2025-08-15_20-32-18.png)

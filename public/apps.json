@@ -28,7 +28,7 @@
         "type" : "external",
         "location": {
             "desktop": true,
-            "pinned": true,
+            "pinned": false,
             "folder": "Homelab"
         }
     },
