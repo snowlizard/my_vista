@@ -20,19 +20,37 @@ export const Startmenu = () => {
 
 const LeftColumn = () => {
     const [toggleText, setToggleText] = useState("All Programs");
+    const [inFolder, setInFolder] = useState(false);
+    const [folders, setFolders] = useState<Array<string>>([]);
     const pinnedApps = useSelector((state: any) => state.app.pinned);
     const allApps = useSelector((state: any) => state.app.all);
 
     const [currentList, setCurrentList] = useState(pinnedApps);
 
     const updateList = () => {
-        if(toggleText === "All Programs"){
+        const targetList = allApps.filter((targetApp: app) => targetApp.location.folder === "");
+        let temp: Array<string>  = [];
+        allApps.forEach((target: app) => {
+            if(!temp.includes(target.location.folder) && target.location.folder != ""){
+                temp.push(target.location.folder);
+            }
+        });
+
+        setFolders(temp);
+
+        if(toggleText === "All Programs" || inFolder){
+            setInFolder(false);
             setToggleText("Back");
-            setCurrentList(allApps);
+            setCurrentList(targetList);
         } else {
             setToggleText("All Programs");
             setCurrentList(pinnedApps);
         }
+    }
+
+    const showApps = (folder: string) => {
+        setInFolder(true);
+        setCurrentList(allApps.filter((targetApp: app) => targetApp.location.folder === folder));
     }
 
 
@@ -42,6 +60,17 @@ const LeftColumn = () => {
                 <div className="programContainer">
                     <div className="listWrapper">
                         <Applist applist={currentList} />
+
+                        { !inFolder && toggleText == "Back" ?
+                            folders.map((folder: string) =>
+                                <div className="pinnedApp" key={folder} onClick={() => showApps(folder)}>
+                                    <div className="pinnedAppIconWrapper">
+                                        <img src="/assets/ui/folder.ico" className="pinnedAppIcon" />
+                                    </div>
+                                    <span className="pinnedAppTitle">{folder}</span>
+                                </div>)
+                        : ""}
+
                     </div>
 
                     <div className="listToggleContainer">
