@@ -13,7 +13,7 @@ export const getTheme = createAsyncThunk(
 const themeSlice = createSlice({
     name: "bootState",
     initialState: {
-        wallpaper: "/C:/Windows/images/wallpapers/space.jpg",
+        wallpaper: "/assets/ui/xp_bg.png",
         username: "",
         userIcon: "",
     },
