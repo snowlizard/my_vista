@@ -8,6 +8,7 @@
     background-size: contain;
     background-repeat: no-repeat;
     z-index: 9999998;
+    cursor: pointer;
 }
 
 #start_orb:hover{
@@ -69,6 +70,7 @@
     justify-content: flex-start;
     align-items: center;
     padding: 3px;
+    cursor: pointer;
 }
 
 .pinnedApp:hover{
@@ -106,6 +108,7 @@
     padding: 3px;
     align-self: flex-end;
     width: 98%;
+    cursor: pointer;
 }
 
 .toggleDivider{
@@ -186,6 +189,7 @@
     display: flex;
     align-items: center;
     text-shadow: 2px 1px 1px #000;
+    cursor: pointer;
 }
 
 .folder-container:hover{
